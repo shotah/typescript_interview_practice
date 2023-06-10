@@ -3,5 +3,9 @@
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "[typescript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "typescript": "npx ts-node"
     }
 }
