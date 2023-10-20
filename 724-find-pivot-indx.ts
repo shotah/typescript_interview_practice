@@ -2,6 +2,9 @@ function pivotIndex(nums: number[]): number {
   let left = 0;
   let right = nums.reduce((a, b) => a + b) - nums[0];
   console.log(`left: ${left}, right: ${right}`);
+  if (left === right) {
+    return 0;
+  }
   for (let i = 0; i < nums.length; i++) {
     left += nums[i];
     right -= nums[i + 1];
