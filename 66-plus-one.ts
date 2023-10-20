@@ -1,7 +1,7 @@
 function plusOne(digits: number[]): number[] {
   const lastDigit = (digits.pop() || 0) + 1;
   // deals with single values
-  if (lastDigit.toString().length == 1) {
+  if (lastDigit.toString().length === 1) {
     digits.push(lastDigit);
     return digits;
   }

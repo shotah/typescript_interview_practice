@@ -1,11 +1,11 @@
 export class G964 {
   public static exEuler = (n: number): number => {
     // your code
-    return 0.5;
+    return n;
   };
 }
 
-import {assert} from 'chai';
+import { assert } from 'chai';
 
 function testing(n: number, expected: number) {
   assert.equal(G964.exEuler(n), expected);

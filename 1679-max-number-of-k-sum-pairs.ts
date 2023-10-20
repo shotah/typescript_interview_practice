@@ -36,7 +36,7 @@
 
 //     while (left < right) {
 //         const sum = nums[left] + nums[right];
-//         if (sum == k) {
+//         if (sum===k) {
 //             count++;
 //             right--;
 //             left++;

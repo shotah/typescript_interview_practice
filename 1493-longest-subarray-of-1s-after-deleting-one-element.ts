@@ -2,20 +2,20 @@
 //     var combinedNums: number[] = []
 //     var currentNumGrp = 0;
 //     nums.forEach((num, idx) => {
-//         if (num == 1) {
+//         if (num===1) {
 //             currentNumGrp++
 //         } else {
 //             combinedNums.push(currentNumGrp);
 //             currentNumGrp = 0;
 //         }
 
-//         if (idx == nums.length - 1) {
+//         if (idx===nums.length - 1) {
 //             combinedNums.push(currentNumGrp);
 //         }
 //     })
 //     console.log(combinedNums)
 //     var maxVal = 0;
-//     if (combinedNums.length == 1) { return combinedNums[0] - 1 }
+//     if (combinedNums.length===1) { return combinedNums[0] - 1 }
 //     for (let i = 0; i < combinedNums.length - 1; i++) {
 //         maxVal = Math.max((combinedNums[i] + combinedNums[i + 1]), maxVal);
 //     }
@@ -30,9 +30,9 @@ function longestSubarray(nums: number[]): number {
   let max = 0;
   for (let i = 0; i < nums.length; i++) {
     // See the break:
-    if (nums[i] == 0) {
+    if (nums[i] === 0) {
       // Check if second break:
-      if (zeroCount == 1) {
+      if (zeroCount === 1) {
         lIdx = zeroPos;
       } else {
         // mark as first break:

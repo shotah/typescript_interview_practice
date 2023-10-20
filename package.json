@@ -1,4 +1,13 @@
 {
+  "name": "leetCode_ts",
+  "main": "",
+  "author": "",
+  "license": "ISC",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=19.0.0"
+  },
+  "description": "LeetCode stuffs",
   "scripts": {
     "test": "inline-mocha --require ts-node/register src/**/*.spec.ts",
     "build": "tsc",
@@ -6,6 +15,9 @@
     "lint": "gts lint",
     "fix": "gts fix"
   },
+  "precommit": [
+    "fix"
+  ],
   "devDependencies": {
     "@types/chai": "^4.3.9",
     "@types/jest": "^29.5.6",

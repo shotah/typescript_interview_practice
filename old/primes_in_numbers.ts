@@ -7,7 +7,7 @@ export class G964 {
     const factors: number[] = [];
     let divisor = 2;
     while (n > 1) {
-      if (n % divisor == 0) {
+      if (n % divisor === 0) {
         factors.push(divisor);
         n = n / divisor;
       } else {

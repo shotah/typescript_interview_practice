@@ -6,7 +6,7 @@ function pivotIndex(nums: number[]): number {
     left += nums[i];
     right -= nums[i + 1];
     console.log(`left: ${left}, right: ${right}`);
-    if (left == right) {
+    if (left === right) {
       return i + 1;
     }
   }

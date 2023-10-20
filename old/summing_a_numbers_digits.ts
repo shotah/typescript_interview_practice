@@ -8,7 +8,6 @@ export function sumDigits(n: number): number {
 // You can use `chai` for assertions.
 // import chai from "chai";
 const chai = require('chai');
-const expect = chai.expect;
 const assert = chai.assert;
 
 assert.equal(sumDigits(10), 1);

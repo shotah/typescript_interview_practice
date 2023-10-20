@@ -1,6 +1,9 @@
 {
   "extends": "./node_modules/gts/",
   "rules": {
-    "node/no-unpublished-import": 0
+    "node/no-unpublished-import": 0,
+    "node/no-unpublished-require": 0,
+    "@typescript-eslint/no-unused-vars": 1,
+    "@typescript-eslint/no-explicit-any": 0
   }
 }

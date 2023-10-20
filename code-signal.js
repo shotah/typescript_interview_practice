@@ -74,7 +74,7 @@ function solution(queries) {
 // // ["", "", "", "", "true", "true", "true", "true", "true", "true", "false"]
 // console.log(solution(queries));
 
-queries = [
+var queries = [
   ['ADD', '0'],
   ['ADD', '1'],
   ['ADD', '1'],
