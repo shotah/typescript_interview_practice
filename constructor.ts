@@ -1,19 +1,21 @@
 class MyHashSet {
-    constructor(list) {
-        this.list = list;
-    }
+  list: number[];
 
-    add(key: number): void {
-        this.add(key)
-    }
+  constructor(list: number[]) {
+    this.list = list;
+  }
 
-    remove(key: number): void {
-        this.remove(key);
-    }
+  add(key: number): void {
+    this.add(key);
+  }
 
-    contains(key: number): boolean {
-        return this.contains(key)
-    }
+  remove(key: number): void {
+    this.remove(key);
+  }
+
+  contains(key: number): boolean {
+    return this.contains(key);
+  }
 }
 
 /**

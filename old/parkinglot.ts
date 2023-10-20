@@ -22,12 +22,12 @@
 // 5. Sort
 
 enum ParkinglotSize {
-  small = "small",
-  medium = "medium",
-  large = "large",
+  small = 'small',
+  medium = 'medium',
+  large = 'large',
 }
 
-const CarTranslation: { [key: string]: ParkinglotSize[] } = {
+const CarTranslation: {[key: string]: ParkinglotSize[]} = {
   motorcycle: [
     ParkinglotSize.small,
     ParkinglotSize.medium,
@@ -44,7 +44,12 @@ class ParkingSpot {
   distance: number;
   available: boolean;
 
-  constructor(spotSize: string, spotLocation: number, spotPrice: number, spotDistance: number) {
+  constructor(
+    spotSize: string,
+    spotLocation: number,
+    spotPrice: number,
+    spotDistance: number
+  ) {
     this.size = spotSize;
     this.location = spotLocation;
     this.price = spotPrice;
@@ -60,49 +65,60 @@ class Parkinglot {
   }
 
   buildParkingSpots(): ParkingSpot[] {
-    let newSpots: ParkingSpot[] = [];
+    const newSpots: ParkingSpot[] = [];
     let distanceTracker = 0;
     for (const spotSize in ParkinglotSize) {
       console.log(`doing for size: ${spotSize}`);
       [...Array(5)].forEach((_, i) => {
         newSpots.push(new ParkingSpot(spotSize, i, i, distanceTracker));
-        distanceTracker++
-      })
+        distanceTracker++;
+      });
     }
     return newSpots;
   }
 
-  findSpotBySize(availableParkingSpot: ParkingSpot, vehicleSizes: ParkinglotSize[]) {
-    return vehicleSizes.find(vehicleSize => availableParkingSpot.size === vehicleSize && availableParkingSpot.available);
+  findSpotBySize(
+    availableParkingSpot: ParkingSpot,
+    vehicleSizes: ParkinglotSize[]
+  ) {
+    return vehicleSizes.find(
+      vehicleSize =>
+        availableParkingSpot.size === vehicleSize &&
+        availableParkingSpot.available
+    );
   }
 
   getParkingSpot(vehicle: string): ParkingSpot {
-    let vehicleSizes = CarTranslation[vehicle];
-    const nextAvailableSpotIndex: number = this.availableParkingSpots.findIndex((availableParkingSpot: ParkingSpot) => this.findSpotBySize(availableParkingSpot, vehicleSizes))!;
+    const vehicleSizes = CarTranslation[vehicle];
+    const nextAvailableSpotIndex: number = this.availableParkingSpots.findIndex(
+      (availableParkingSpot: ParkingSpot) =>
+        this.findSpotBySize(availableParkingSpot, vehicleSizes)
+    )!;
     if (nextAvailableSpotIndex !== undefined) {
-      let nextAvailableSpot: ParkingSpot = this.availableParkingSpots[nextAvailableSpotIndex]!;
+      const nextAvailableSpot: ParkingSpot =
+        this.availableParkingSpots[nextAvailableSpotIndex]!;
       nextAvailableSpot.available = false;
       return nextAvailableSpot;
     }
-    throw "No Spot found!"
+    throw 'No Spot found!';
   }
 }
 
 const currentLot: Parkinglot = new Parkinglot();
-let vehicle = "car";
-console.log(`Searching for ${vehicle}`)
+let vehicle = 'car';
+console.log(`Searching for ${vehicle}`);
 console.log(currentLot.getParkingSpot(vehicle));
 console.log(currentLot.getParkingSpot(vehicle));
 console.log(currentLot.getParkingSpot(vehicle));
 
-vehicle = "motorcycle";
-console.log(`Searching for ${vehicle}`)
+vehicle = 'motorcycle';
+console.log(`Searching for ${vehicle}`);
 console.log(currentLot.getParkingSpot(vehicle));
 console.log(currentLot.getParkingSpot(vehicle));
 console.log(currentLot.getParkingSpot(vehicle));
 
-vehicle = "truck";
-console.log(`Searching for ${vehicle}`)
+vehicle = 'truck';
+console.log(`Searching for ${vehicle}`);
 console.log(currentLot.getParkingSpot(vehicle));
 console.log(currentLot.getParkingSpot(vehicle));
 console.log(currentLot.getParkingSpot(vehicle));

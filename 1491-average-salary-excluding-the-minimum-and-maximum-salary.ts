@@ -2,12 +2,12 @@
 // Return the average salary of employees excluding the minimum and maximum salary. Answers within 10-5 of the actual answer will be accepted.
 
 function average(salary: number[]): number {
-    let min = Math.min(...salary);
-    let max = Math.max(...salary);
-    delete salary[salary.indexOf(min)];
-    delete salary[salary.indexOf(max)];
-    return salary.reduce((a, b) => a + b) / (salary.length - 2);
-};
+  const min = Math.min(...salary);
+  const max = Math.max(...salary);
+  delete salary[salary.indexOf(min)];
+  delete salary[salary.indexOf(max)];
+  return salary.reduce((a, b) => a + b) / (salary.length - 2);
+}
 
 let salary: number[] = [];
 

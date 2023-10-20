@@ -23,18 +23,23 @@
 // };
 
 function longestOnes(nums: number[], k: number): number {
-    let left = 0, right = 0
-    for (; right < nums.length; right++) {
-        if (nums[right] == 0) { k-- }
-        if (k < 0) {
-            if (nums[left] == 0) { k++ };
-            left++;
-        }
+  let left = 0,
+    right = 0;
+  for (; right < nums.length; right++) {
+    if (nums[right] == 0) {
+      k--;
     }
-    return right - left;
+    if (k < 0) {
+      if (nums[left] == 0) {
+        k++;
+      }
+      left++;
+    }
+  }
+  return right - left;
 }
 
-let nums = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], k = 2
+const nums = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0],
+  k = 2;
 // Output: 6
-console.log(longestOnes(nums, k))
-
+console.log(longestOnes(nums, k));

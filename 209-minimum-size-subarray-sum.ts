@@ -1,4 +1,4 @@
-// Given an array of positive integers nums and a positive integer target, return the minimal length of a 
+// Given an array of positive integers nums and a positive integer target, return the minimal length of a
 // subarray
 // whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
 
@@ -138,38 +138,38 @@
 // };
 
 function minSubArrayLen(target: number, nums: number[]): number {
-    let minLength = Infinity;
-    let windowSum = 0;
-    for (let windowEnd = 0, windowStart = 0; windowEnd < nums.length; windowEnd++) {
-        windowSum += nums[windowEnd];
+  let minLength = Infinity;
+  let windowSum = 0;
+  for (
+    let windowEnd = 0, windowStart = 0;
+    windowEnd < nums.length;
+    windowEnd++
+  ) {
+    windowSum += nums[windowEnd];
 
-        // calculate the sum until windowSum is >= target
-        // if so, enter this while loop
-        while (windowSum >= target) {
+    // calculate the sum until windowSum is >= target
+    // if so, enter this while loop
+    while (windowSum >= target) {
+      // take the minLength
+      // we do (windowEnd - windowStart + 1) because
+      // if for example windowStart = 0 and windowEnd = 0
+      // we have one element, but if we don't add the one, it will
+      // not count it as one
+      minLength = Math.min(minLength, windowEnd - windowStart + 1);
 
-            // take the minLength
-            // we do (windowEnd - windowStart + 1) because
-            // if for example windowStart = 0 and windowEnd = 0
-            // we have one element, but if we don't add the one, it will 
-            // not count it as one
-            minLength = Math.min(minLength, windowEnd - windowStart + 1);
+      // keep decreasing windowSum until it is less than target again
+      // and for each time you decrease, check if the new sum still meets
+      // our condition (windowSum >= target). If so, then we might have a new minLength
+      windowSum -= nums[windowStart];
 
-            // keep decreasing windowSum until it is less than target again
-            // and for each time you decrease, check if the new sum still meets
-            // our condition (windowSum >= target). If so, then we might have a new minLength
-            windowSum -= nums[windowStart];
-
-            // shrink the window
-            windowStart++;
-        }
+      // shrink the window
+      windowStart++;
     }
+  }
 
-    if (minLength === Infinity)
-        return 0;
-    return minLength;
-};
-
-
+  if (minLength === Infinity) return 0;
+  return minLength;
+}
 
 let target: number;
 let nums: number[];
@@ -202,6 +202,6 @@ let nums: number[];
 // // // Output: 3
 // console.log("result: ", minSubArrayLen(target, nums));
 
-target = 15, nums = [1, 2, 3, 4, 5]
+(target = 15), (nums = [1, 2, 3, 4, 5]);
 // // Output: 5
-console.log("result: ", minSubArrayLen(target, nums));
+console.log('result: ', minSubArrayLen(target, nums));

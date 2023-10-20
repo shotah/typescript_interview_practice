@@ -1,15 +1,26 @@
-const nextPairs = (x: number): number[] => { return [2 * x + 1, 3 * x + 1] }
+const nextPairs = (x: number): number[] => {
+  return [2 * x + 1, 3 * x + 1];
+};
 
 export function dblLinear(n: number): number {
-  const linearArr: number[] = [...Array(n + 1)].reduce((a, _, i) => { return a = [...a, ...nextPairs(a[i])] }, [1]);
-  const filteredLinearArr: number[] = [...new Set([...linearArr.sort((a, b) => a - b)])]
-  if (n === 100) { console.log(filteredLinearArr.slice(85)) }
+  const linearArr: number[] = [...Array(n + 1)].reduce(
+    (a, _, i) => {
+      return (a = [...a, ...nextPairs(a[i])]);
+    },
+    [1]
+  );
+  const filteredLinearArr: number[] = [
+    ...new Set([...linearArr.sort((a, b) => a - b)]),
+  ];
+  if (n === 100) {
+    console.log(filteredLinearArr.slice(85));
+  }
   return [...new Set([...linearArr.sort((a, b) => a - b)])][n];
 }
 
-dblLinear(100)
+dblLinear(100);
 
-import { assert } from "chai";
+import {assert} from 'chai';
 
 assert.strictEqual(dblLinear(10), 22);
 assert.strictEqual(dblLinear(20), 57);

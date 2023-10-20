@@ -50,34 +50,34 @@
 // }
 
 class Trie {
-    wordStorage: Set<string>
-    constructor() {
-        this.wordStorage = new Set();
-    }
+  wordStorage: Set<string>;
+  constructor() {
+    this.wordStorage = new Set();
+  }
 
-    insert(word: string): void {
-        this.wordStorage.add(word)
-    }
+  insert(word: string): void {
+    this.wordStorage.add(word);
+  }
 
-    search(word: string): boolean {
-        return this.wordStorage.has(word)
-    }
+  search(word: string): boolean {
+    return this.wordStorage.has(word);
+  }
 
-    startsWith(prefix: string): boolean {
-        for (const word of this.wordStorage) {
-            if (word.startsWith(prefix)) return true;
-        }
-        return false;
+  startsWith(prefix: string): boolean {
+    for (const word of this.wordStorage) {
+      if (word.startsWith(prefix)) return true;
     }
+    return false;
+  }
 }
 
-let trie = new Trie();
-trie.insert("apple");
-trie.search("apple");   // return True
-trie.search("app");     // return False
-trie.startsWith("app"); // return True
-trie.insert("app");
-trie.search("app");     // return True
+const trie = new Trie();
+trie.insert('apple');
+trie.search('apple'); // return True
+trie.search('app'); // return False
+trie.startsWith('app'); // return True
+trie.insert('app');
+trie.search('app'); // return True
 
 /**
  * Your Trie object will be instantiated and called as such:

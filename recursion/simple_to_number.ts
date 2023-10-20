@@ -1,8 +1,8 @@
 function totalSum(base: number): number {
-    // solve for the base case first!!!!
-    if (base <= 0) return 0;
-    return base + totalSum(base - 1);
-};
+  // solve for the base case first!!!!
+  if (base <= 0) return 0;
+  return base + totalSum(base - 1);
+}
 
 let base: number;
 

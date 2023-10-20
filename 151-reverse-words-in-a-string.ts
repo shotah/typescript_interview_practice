@@ -13,17 +13,21 @@
 // };
 
 function reverseWords(s: string): string {
-    return s.split(" ").filter(grp => grp !== "").reverse().join(" ");
-};
+  return s
+    .split(' ')
+    .filter(grp => grp !== '')
+    .reverse()
+    .join(' ');
+}
 
-let s = "the sky is blue"
-Output: "blue is sky the"
+let s = 'the sky is blue';
+Output: 'blue is sky the';
 console.log(reverseWords(s));
 
-s = "  hello world  "
-Output: "world hello"
+s = '  hello world  ';
+Output: 'world hello';
 console.log(reverseWords(s));
 
-s = "a good   example"
-Output: "example good a"
+s = 'a good   example';
+Output: 'example good a';
 console.log(reverseWords(s));

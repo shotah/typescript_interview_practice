@@ -2,10 +2,10 @@ let n: number;
 let m: number;
 
 function partions(n: number, m: number): number {
-    // solve for the base case first!!!!
-    if (n === 0) return 1;
-    if (n < 0 || m === 0) return 0;
-    return partions(n - m, m) + partions(n, m - 1);
+  // solve for the base case first!!!!
+  if (n === 0) return 1;
+  if (n < 0 || m === 0) return 0;
+  return partions(n - m, m) + partions(n, m - 1);
 }
 
 n = 1;

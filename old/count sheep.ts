@@ -1,12 +1,12 @@
 export function countSheep(num: number): string {
-  return [...Array(num + 1)].map((_, i) => i !== 0 ? `${i} sheep...` : '').join("");
+  return [...Array(num + 1)]
+    .map((_, i) => (i !== 0 ? `${i} sheep...` : ''))
+    .join('');
 }
 
-console.log(
-  countSheep(4)
-)
+console.log(countSheep(4));
 
-import { assert } from "chai";
+import {assert} from 'chai';
 
 assert.equal(countSheep(0), '');
 assert.equal(countSheep(1), '1 sheep...');

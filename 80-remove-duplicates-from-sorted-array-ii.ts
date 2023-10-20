@@ -23,16 +23,16 @@
 // };
 
 function removeDuplicates(nums: number[]): number {
-    let i = 0;
-    nums.forEach(num => {
-        if (i < 2 || num > nums[i - 2]) {
-            nums[i] = num;
-            i++;
-        }
-    });
-    return i;
-};
+  let i = 0;
+  nums.forEach(num => {
+    if (i < 2 || num > nums[i - 2]) {
+      nums[i] = num;
+      i++;
+    }
+  });
+  return i;
+}
 
-let nums = [1, 1, 1, 2, 2, 3]
-console.log(removeDuplicates(nums))
+const nums = [1, 1, 1, 2, 2, 3];
+console.log(removeDuplicates(nums));
 // Output: 5, nums = [1,1,2,2,3,_]

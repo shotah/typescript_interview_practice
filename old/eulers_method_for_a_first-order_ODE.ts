@@ -1,18 +1,18 @@
 export class G964 {
-    public static exEuler = (n: number): number => {
-        // your code
-        return 0.5;
-    }
+  public static exEuler = (n: number): number => {
+    // your code
+    return 0.5;
+  };
 }
 
-import { assert } from "chai";
+import {assert} from 'chai';
 
 function testing(n: number, expected: number) {
-    assert.equal(G964.exEuler(n), expected);
+  assert.equal(G964.exEuler(n), expected);
 }
 
-testing(1, 0.5)
-testing(10, 0.026314)
-testing(17, 0.015193)
-testing(50, 0.005073)
-testing(100, 0.002524)
+testing(1, 0.5);
+testing(10, 0.026314);
+testing(17, 0.015193);
+testing(50, 0.005073);
+testing(100, 0.002524);

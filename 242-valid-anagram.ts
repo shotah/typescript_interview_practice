@@ -15,32 +15,31 @@
 // };
 
 function isAnagram(s: string, t: string): boolean {
-    if (s.length !== t.length) return false;
-    let result = true;
-    const sMap = new Map();
-    const tMap = new Map();
-    s.split('').forEach((char) => {
-        if (sMap.has(char)) {
-            sMap.set(char, sMap.get(char) + 1);
-        } else {
-            sMap.set(char, 1);
-        }
-    });
-    t.split('').forEach((char) => {
-        if (tMap.has(char)) {
-            tMap.set(char, tMap.get(char) + 1);
-        } else {
-            tMap.set(char, 1);
-        }
-    });
-    sMap.forEach((value, key) => {
-        if (tMap.has(key) === false || tMap.get(key) !== value) {
-            result = false;
-        }
-    });
-    return result;
+  if (s.length !== t.length) return false;
+  let result = true;
+  const sMap = new Map();
+  const tMap = new Map();
+  s.split('').forEach(char => {
+    if (sMap.has(char)) {
+      sMap.set(char, sMap.get(char) + 1);
+    } else {
+      sMap.set(char, 1);
+    }
+  });
+  t.split('').forEach(char => {
+    if (tMap.has(char)) {
+      tMap.set(char, tMap.get(char) + 1);
+    } else {
+      tMap.set(char, 1);
+    }
+  });
+  sMap.forEach((value, key) => {
+    if (tMap.has(key) === false || tMap.get(key) !== value) {
+      result = false;
+    }
+  });
+  return result;
 }
-
 
 console.log(isAnagram('anagram', 'nagaram'));
 // Output: true

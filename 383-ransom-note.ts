@@ -15,36 +15,36 @@
 // };
 
 function canConstruct(ransomNote: string, magazine: string): boolean {
-    if (ransomNote.length > magazine.length) return false;
-    const tracker = new Map<string, number>();
-    magazine.split('').forEach(l => {
-        tracker.set(l, (tracker.get(l) || 0) + 1)
-    })
-    let hasValues = true;
-    ransomNote.split('').forEach(l => {
-        if ((tracker.get(l) || 0) >= 1) {
-            tracker.set(l, (tracker.get(l) || 0) - 1)
-        } else {
-            hasValues = false
-            return;
-        }
+  if (ransomNote.length > magazine.length) return false;
+  const tracker = new Map<string, number>();
+  magazine.split('').forEach(l => {
+    tracker.set(l, (tracker.get(l) || 0) + 1);
+  });
+  let hasValues = true;
+  ransomNote.split('').forEach(l => {
+    if ((tracker.get(l) || 0) >= 1) {
+      tracker.set(l, (tracker.get(l) || 0) - 1);
+    } else {
+      hasValues = false;
+      return;
+    }
+  });
+  return hasValues;
+}
 
-    })
-    return hasValues;
-};
-
-let ransomNote = "a", magazine = "b"
+let ransomNote = 'a',
+  magazine = 'b';
 // output: false
 console.log(canConstruct(ransomNote, magazine));
 
-ransomNote = "aa", magazine = "ab"
+(ransomNote = 'aa'), (magazine = 'ab');
 // output: false
 console.log(canConstruct(ransomNote, magazine));
 
-ransomNote = "aa", magazine = "aab"
+(ransomNote = 'aa'), (magazine = 'aab');
 // output: true
 console.log(canConstruct(ransomNote, magazine));
 
-ransomNote = "aab", magazine = "baa"
+(ransomNote = 'aab'), (magazine = 'baa');
 // output: true
 console.log(canConstruct(ransomNote, magazine));

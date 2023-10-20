@@ -23,18 +23,18 @@ const V = new Set(['a', 'e', 'i', 'o', 'u']);
 // }
 
 function maxVowels(s: string, k: number): number {
-    let max = 0;
-    let count = 0;
-    for (let i = 0; i < s.length; i++) {
-        if (V.has(s[i])) {
-            count++;
-        }
-        if (i >= k && V.has(s[i - k])) {
-            count--;
-        }
-        max = Math.max(max, count);
-    };
-    return max;
+  let max = 0;
+  let count = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (V.has(s[i])) {
+      count++;
+    }
+    if (i >= k && V.has(s[i - k])) {
+      count--;
+    }
+    max = Math.max(max, count);
+  }
+  return max;
 }
 
 console.log(maxVowels('abciiidef', 3));

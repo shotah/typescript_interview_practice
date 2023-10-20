@@ -44,36 +44,48 @@
 // };
 
 function gameOfLife(board: number[][]): void {
-    // let newBoard = JSON.parse(JSON.stringify(board));
-    let newBoard: number[][] = [[]];
-    for (let i = 0; i < board.length; i++) {
-        for (let j = 0; j < board[0].length; j++) {
-            newBoard[i][j] = board[i][j];
-        }
-    };
-    for (let i = 0; i < board.length; i++) {
-        for (let j = 0; j < board[0].length; j++) {
-            let isAlive = (board[i][j] === 1);
-            let neighborCount = (board?.[i - 1]?.[j - 1] || 0) + (board?.[i - 1]?.[j] || 0) + (board?.[i - 1]?.[j + 1] || 0) +
-                (board?.[i]?.[j - 1] || 0) + (board?.[i]?.[j + 1] || 0) +
-                (board?.[i + 1]?.[j - 1] || 0) + (board?.[i + 1]?.[j] || 0) + (board?.[i + 1]?.[j + 1] || 0)
-            if (neighborCount < 2) {
-                newBoard[i][j] = 0;
-            } else if (neighborCount === 3) {
-                newBoard[i][j] = 1;
-            } else if (neighborCount > 3) { newBoard[i][j] = 0 };
-        }
+  // let newBoard = JSON.parse(JSON.stringify(board));
+  const newBoard: number[][] = [[]];
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      newBoard[i][j] = board[i][j];
     }
-    for (let i = 0; i < board.length; i++) {
-        for (let j = 0; j < board[0].length; j++) {
-            board[i][j] = newBoard[i][j];
-        }
-    };
-};
+  }
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      const isAlive = board[i][j] === 1;
+      const neighborCount =
+        (board?.[i - 1]?.[j - 1] || 0) +
+        (board?.[i - 1]?.[j] || 0) +
+        (board?.[i - 1]?.[j + 1] || 0) +
+        (board?.[i]?.[j - 1] || 0) +
+        (board?.[i]?.[j + 1] || 0) +
+        (board?.[i + 1]?.[j - 1] || 0) +
+        (board?.[i + 1]?.[j] || 0) +
+        (board?.[i + 1]?.[j + 1] || 0);
+      if (neighborCount < 2) {
+        newBoard[i][j] = 0;
+      } else if (neighborCount === 3) {
+        newBoard[i][j] = 1;
+      } else if (neighborCount > 3) {
+        newBoard[i][j] = 0;
+      }
+    }
+  }
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[0].length; j++) {
+      board[i][j] = newBoard[i][j];
+    }
+  }
+}
 
 let board: number[][];
 
-board = [[0, 1, 0], [0, 0, 1], [1, 1, 1], [0, 0, 0]]
+board = [
+  [0, 1, 0],
+  [0, 0, 1],
+  [1, 1, 1],
+  [0, 0, 0],
+];
 // Output: [[0,0,0],[1,0,1],[0,1,1],[0,1,0]]
 gameOfLife(board);
-

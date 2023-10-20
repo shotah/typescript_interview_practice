@@ -81,27 +81,28 @@
 // }
 
 function maxOperations(nums: number[], k: number): number {
-    let counts: Map<number, number> = new Map();
-    let count: number = 0;
-    for (let i: number = 0; i < nums.length; i++) {
-        const complement = k - nums[i];
-        if (counts.get(complement)! > 0) {
-            count++;
-            // Mark complement as used, and update complement count.
-            counts.set(complement, counts.get(complement)! - 1);
-        } else {
-            // Increment how many complemnts this array contains.
-            counts.set(nums[i], (counts.get(nums[i]) || 0) + 1);
-        }
-        console.log(counts);
+  const counts: Map<number, number> = new Map();
+  let count = 0;
+  for (let i = 0; i < nums.length; i++) {
+    const complement = k - nums[i];
+    if (counts.get(complement)! > 0) {
+      count++;
+      // Mark complement as used, and update complement count.
+      counts.set(complement, counts.get(complement)! - 1);
+    } else {
+      // Increment how many complemnts this array contains.
+      counts.set(nums[i], (counts.get(nums[i]) || 0) + 1);
     }
-    return count;
+    console.log(counts);
+  }
+  return count;
 }
 
-let nums = [1, 2, 3, 4], k = 5
+let nums = [1, 2, 3, 4],
+  k = 5;
 // Output: 2
 console.log(maxOperations(nums, k));
 
-nums = [3, 1, 3, 4, 3], k = 6;
+(nums = [3, 1, 3, 4, 3]), (k = 6);
 // Output: 1
 console.log(maxOperations(nums, k));

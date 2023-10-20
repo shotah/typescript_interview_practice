@@ -6,14 +6,14 @@
 
 // Sliding Window:
 function maxProfit(prices: number[]): number {
-    let min = prices[0]
-    let max = 0
-    prices.forEach(price => {
-        min = Math.min(min, price)
-        max = Math.max(max, price - min)
-    })
-    return max
-};
+  let min = prices[0];
+  let max = 0;
+  prices.forEach(price => {
+    min = Math.min(min, price);
+    max = Math.max(max, price - min);
+  });
+  return max;
+}
 
 let result = 0;
 

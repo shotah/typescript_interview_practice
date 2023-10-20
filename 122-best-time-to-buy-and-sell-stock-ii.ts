@@ -22,13 +22,13 @@
 // };
 
 function maxProfit(prices: number[]): number {
-    let maxProfit = 0;
-    prices.forEach((price, idx) => {
-        if (price > prices[idx - 1]) {
-            maxProfit += price - prices[idx - 1]
-        }
-    })
-    return maxProfit;
+  let maxProfit = 0;
+  prices.forEach((price, idx) => {
+    if (price > prices[idx - 1]) {
+      maxProfit += price - prices[idx - 1];
+    }
+  });
+  return maxProfit;
 }
 
 let prices: number[] = [];
@@ -45,6 +45,6 @@ let prices: number[] = [];
 // // Output: 0
 // console.log(maxProfit(prices))
 
-prices = [6, 1, 3, 2, 4, 7]
+prices = [6, 1, 3, 2, 4, 7];
 // Output: 7
-console.log(maxProfit(prices))
+console.log(maxProfit(prices));

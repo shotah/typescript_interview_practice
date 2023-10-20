@@ -19,12 +19,14 @@
 // };
 
 function gcdOfStrings(str1: string, str2: string): string {
-    if (str1 + str2 !== str2 + str1) return "";
-    if (str1 === str2) return str1;
-    if (str1.length > str2.length) return gcdOfStrings(str1.substring(str2.length), str2);
-    return gcdOfStrings(str1, str2.substring(str1.length));
+  if (str1 + str2 !== str2 + str1) return '';
+  if (str1 === str2) return str1;
+  if (str1.length > str2.length)
+    return gcdOfStrings(str1.substring(str2.length), str2);
+  return gcdOfStrings(str1, str2.substring(str1.length));
 }
 
-let str1 = "ABCABC", str2 = "ABC"
+const str1 = 'ABCABC',
+  str2 = 'ABC';
 // Output: "ABC"
-console.log(gcdOfStrings(str1, str2))
+console.log(gcdOfStrings(str1, str2));

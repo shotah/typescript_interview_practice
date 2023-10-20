@@ -1,6 +1,5 @@
-// Given n non-negative integers representing an elevation map where 
+// Given n non-negative integers representing an elevation map where
 // the width of each bar is 1, compute how much water it can trap after raining.
-
 
 // function trap(height: number[]): number {
 //     let firstIndexTracker: number = 0;
@@ -17,12 +16,10 @@
 //             //if (sumOfLocalPool === 0 && height[j] <= 0) break;
 //             // j moves ahead until it matches the height of i.
 
-
 //             if (height[j] < height[i]) {
 //                 sumOfLocalPool += height[i] - height[j];
 //                 console.log(height[i], height[j], sumOfLocalPool)
 //             }
-
 
 //             // as big as it can get.
 //             if (sumOfLocalPool > 0 && height[j] >= height[i]) {
@@ -89,38 +86,37 @@
 // };
 
 function trap(height: number[]): number {
-    if (height.length === 0) {
-        return 0
+  if (height.length === 0) {
+    return 0;
+  }
+
+  let water = 0;
+  let leftMax = 0;
+  let rightMax = 0;
+  let leftP = 0;
+  let rightP = height.length - 1;
+
+  while (leftP <= rightP) {
+    leftMax = Math.max(leftMax, height[leftP]);
+    rightMax = Math.max(rightMax, height[rightP]);
+    if (leftMax < rightMax) {
+      water += leftMax - height[leftP];
+      leftP++;
+    } else {
+      water += rightMax - height[rightP];
+      rightP--;
     }
-
-    let water = 0
-    let leftMax = 0
-    let rightMax = 0
-    let leftP = 0
-    let rightP = height.length - 1
-
-    while (leftP <= rightP) {
-        leftMax = Math.max(leftMax, height[leftP])
-        rightMax = Math.max(rightMax, height[rightP])
-        if (leftMax < rightMax) {
-            water += leftMax - height[leftP]
-            leftP++
-        } else {
-            water += rightMax - height[rightP]
-            rightP--
-        }
-    }
-    return water
-};
-
+  }
+  return water;
+}
 
 let height: number[] = [];
 
-height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1];
 // Output: 6
 console.log(trap(height));
 
-height = [4, 2, 0, 3, 2, 5]
+height = [4, 2, 0, 3, 2, 5];
 // Output: 9
 console.log(trap(height));
 

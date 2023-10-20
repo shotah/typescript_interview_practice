@@ -1,10 +1,10 @@
 /*
 ACME's String Builders division have come up with a new metric for the cost of constructing strings! It works as follows:
 
-Find all distinct characters that appear in the string. For each of those characters, 
+Find all distinct characters that appear in the string. For each of those characters,
 
 * count the number of occurrences.
-* Square each of those counts. 
+* Square each of those counts.
 * Sum all those squares to get the value of the string.
 
 For example, the string "abacaba" contains 4 'a's, 2 'b's, and 1 'c'. Thus, its value is 4x4 + 2x2 + 1x1 = 21.
@@ -57,17 +57,16 @@ def cost(str)
 //     return Object.entries(r).reduce((acc, e) => acc += (e[1] ** 2), 0);
 // };
 
-
 const cost = (str: string): number => {
-    return Object.entries(
-        [...str].reduce<Record<string, number>>((a, e) => {
-            a[e] = a[e] ? ++a[e] : 1
-            return a;
-        }, {})
-    ).reduce<number>((b, n) => b += (n[1] ** 2), 0);
+  return Object.entries(
+    [...str].reduce<Record<string, number>>((a, e) => {
+      a[e] = a[e] ? ++a[e] : 1;
+      return a;
+    }, {})
+  ).reduce<number>((b, n) => (b += n[1] ** 2), 0);
 };
 
-import { expect } from "chai";
+import {expect} from 'chai';
 
 expect(cost('4c9219dc73c0f4511264fcffb63f04de')).to.eql(94);
 expect(cost('1331b7b6ba60c6516ca3b8bd4f384ede')).to.eql(94);
