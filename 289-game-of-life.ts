@@ -53,7 +53,7 @@ function gameOfLife(board: number[][]): void {
   }
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board[0].length; j++) {
-      const isAlive = board[i][j] === 1;
+      // const isAlive = board[i][j] === 1;
       const neighborCount =
         (board?.[i - 1]?.[j - 1] || 0) +
         (board?.[i - 1]?.[j] || 0) +
@@ -79,9 +79,9 @@ function gameOfLife(board: number[][]): void {
   }
 }
 
-let board: number[][];
+// const board: number[][];
 
-board = [
+const board = [
   [0, 1, 0],
   [0, 0, 1],
   [1, 1, 1],

@@ -6,6 +6,7 @@
 // elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
 
 function merge(nums1: number[], m: number, nums2: number[], n: number): void {
+  console.log(n);
   nums2.forEach((nums2num, nums2index) => {
     nums1[m + nums2index] = nums2num;
   });

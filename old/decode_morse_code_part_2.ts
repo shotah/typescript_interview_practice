@@ -127,8 +127,8 @@ export const decodeMorse = (morseCode: string): string => {
 };
 
 import {assert} from 'chai';
-import {time} from 'console';
-import {resourceLimits} from 'worker_threads';
+// import {time} from 'console';
+// import {resourceLimits} from 'worker_threads';
 
 const Test = {
   assertEquals: (...args: any[]) => (assert as any).equal(...args),

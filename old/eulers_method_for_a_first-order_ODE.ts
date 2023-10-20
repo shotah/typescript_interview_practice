@@ -5,7 +5,7 @@ export class G964 {
   };
 }
 
-import { assert } from 'chai';
+import {assert} from 'chai';
 
 function testing(n: number, expected: number) {
   assert.equal(G964.exEuler(n), expected);

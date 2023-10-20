@@ -28,7 +28,7 @@ lint:
 	npm run lint
 
 .PHONY: fix
-lint-fix:
+fix:
 	npm run fix
 
 # ###########################

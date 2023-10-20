@@ -21,13 +21,13 @@ function reverseWords(s: string): string {
 }
 
 let s = 'the sky is blue';
-Output: 'blue is sky the';
+// Output: 'blue is sky the';
 console.log(reverseWords(s));
 
 s = '  hello world  ';
-Output: 'world hello';
+// Output: 'world hello';
 console.log(reverseWords(s));
 
 s = 'a good   example';
-Output: 'example good a';
+// Output: 'example good a';
 console.log(reverseWords(s));

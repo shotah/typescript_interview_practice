@@ -5,6 +5,6 @@
   ['671a1f51c2277d464452344612b94e90', 102],
   ['6dacacfdd431da08d1a8e0bdb2ae069e', 104],
 ].forEach(arr => {
-  const { str, expected } = [...arr];
+  const {str, expected} = [...arr];
   console.log(str, expected);
 });
