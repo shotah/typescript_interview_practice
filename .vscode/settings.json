@@ -4,5 +4,8 @@
     "javascript": "node",
     "typescript": "npx ts-node"
   },
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "cSpell.words": [
+    "tribonacci"
+  ]
 }
