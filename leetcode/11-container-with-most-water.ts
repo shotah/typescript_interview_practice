@@ -1,3 +1,6 @@
+// 11. Container With Most Water
+// https://leetcode.com/problems/container-with-most-water/
+
 function maxArea(height: number[]): number {
   let result = 0;
   let left = 0;
@@ -5,7 +8,7 @@ function maxArea(height: number[]): number {
   while (left < right) {
     result = Math.max(
       result,
-      (right - left) * Math.min(height[left], height[right])
+      (right - left) * Math.min(height[left], height[right]),
     );
     if (height[left] > height[right]) {
       right--;
