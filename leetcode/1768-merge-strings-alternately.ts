@@ -1,17 +1,14 @@
 function mergeAlternately(word1: string, word2: string): string {
   let result = '';
   let i = 0;
+  // merge the strings
   while (i < word1.length && i < word2.length) {
     result += word1[i];
     result += word2[i];
     i++;
   }
-  if (i < word1.length) {
-    result += word1.slice(i);
-  }
-  if (i < word2.length) {
-    result += word2.slice(i);
-  }
+  result += word1.slice(i);
+  result += word2.slice(i);
   return result;
 }
 

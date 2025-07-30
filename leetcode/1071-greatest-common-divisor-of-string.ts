@@ -26,7 +26,11 @@ function gcdOfStrings(str1: string, str2: string): string {
   return gcdOfStrings(str1, str2.substring(str1.length));
 }
 
-const str1 = 'ABCABC',
+let str1 = 'ABCABC',
   str2 = 'ABC';
 // Output: "ABC"
+console.log(gcdOfStrings(str1, str2));
+
+(str1 = 'ABABAB'), (str2 = 'ABAB');
+// Output: "AB"
 console.log(gcdOfStrings(str1, str2));

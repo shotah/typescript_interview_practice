@@ -4,12 +4,15 @@
     "javascript": "node",
     "typescript": "npx ts-node"
   },
+  "editor.suggestOnTriggerCharacters": false,
   "files.eol": "\n",
   "cSpell.words": [
     "inorder",
     "leetcode",
     "moneypot",
     "sadbutsad",
+    "nums",
     "tribonacci"
-  ]
+  ],
+  "editor.tabSize": 2
 }
