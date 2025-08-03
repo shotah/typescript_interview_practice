@@ -1,1 +1,38 @@
 node_modules
+.env
+
+# Auto-generated practice projects (don't commit these)
+# Express practice
+my-api
+express_practice/my-api
+express_practice/*/node_modules
+
+# React practice  
+component-test
+component_practice/component-test
+component_practice/*/node_modules
+component_practice/*/build
+component_practice/*/.env.local
+component_practice/*/tsconfig.json
+component_practice/*/public
+component_practice/*/src
+
+# Tic-tac-toe practice
+tic-tac-toe-game
+tic_tac_toe_practice/tic-tac-toe-game
+tic_tac_toe_practice/*/node_modules
+tic_tac_toe_practice/*/build
+tic_tac_toe_practice/*/public
+tic_tac_toe_practice/*/src
+
+# HTTP requests practice
+http-practice
+nodejs_requests_practice/http-practice
+nodejs_requests_practice/*/node_modules
+
+# Any auto-generated test projects
+**/test-app
+**/demo-app
+**/practice-app
+**/*-test
+**/*-demo
