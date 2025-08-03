@@ -1,0 +1,36 @@
+{
+  "name": "database-practice",
+  "version": "1.0.0",
+  "description": "Database practice with Docker setup",
+  "main": "index.js",
+  "scripts": {
+    "db:up": "docker-compose up -d",
+    "db:down": "docker-compose down",
+    "db:restart": "docker-compose restart",
+    "db:logs": "docker-compose logs -f",
+    "db:clean": "docker-compose down -v",
+    "db:status": "docker-compose ps",
+    "db:postgres": "docker-compose exec postgres psql -U practice_user -d practice_db",
+    "db:mysql": "docker-compose exec mysql mysql -u practice_user -ppractice_password practice_db",
+    "db:redis": "docker-compose exec redis redis-cli",
+    "admin": "echo 'Adminer available at http://localhost:8080'",
+    "setup:prisma": "cd prisma-example && npm install && npx prisma generate && npx prisma db push",
+    "setup:typeorm": "cd typeorm-example && npm install && npm run build && npm run migration:run",
+    "test:prisma": "cd prisma-example && npm test",
+    "test:typeorm": "cd typeorm-example && npm test",
+    "dev:prisma": "cd prisma-example && npm run dev",
+    "dev:typeorm": "cd typeorm-example && npm run dev"
+  },
+  "keywords": [
+    "database",
+    "sql",
+    "prisma",
+    "typeorm",
+    "docker"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

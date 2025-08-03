@@ -18,6 +18,15 @@ Comprehensive practice repository for TypeScript, JavaScript, and web developmen
 ### 🌍 **HTTP & Networking**
 - **[nodejs_requests_practice/](./nodejs_requests_practice/)** - HTTP requests, fetch, axios, error handling, and API integration
 
+### 🗄️ **Database & Persistence**
+- **[database_practice/](./database_practice/)** - SQL fundamentals, Prisma ORM, TypeORM, and database design patterns
+
+### 🧪 **Testing & Quality**
+- **[testing_practice/](./testing_practice/)** - Jest, React Testing Library, API testing, and testing best practices
+
+### 🔐 **Authentication & Security**
+- **[auth_practice/](./auth_practice/)** - JWT tokens, sessions, middleware, security patterns, and auth flows
+
 ### 📚 **Legacy & Learning**
 - **[old/](./old/)** - Earlier coding exercises and practice problems
 - **[etc/](./etc/)** - Miscellaneous utilities and test files
@@ -43,6 +52,31 @@ cd component-test && npm start
 cd nodejs_requests_practice
 npm init -y
 npm install axios node-fetch dotenv
+```
+
+### Database Practice
+```bash
+cd database_practice
+mkdir db-practice && cd db-practice
+npm init -y
+npm install prisma @prisma/client typescript ts-node --save-dev
+npx prisma init --datasource-provider sqlite
+```
+
+### Testing Practice
+```bash
+cd testing_practice
+npx create-react-app test-practice --template typescript
+cd test-practice && npm install @testing-library/user-event msw --save-dev
+```
+
+### Authentication Practice
+```bash
+cd auth_practice
+mkdir auth-practice && cd auth-practice
+npm init -y
+npm install express bcrypt jsonwebtoken cors dotenv
+npm install --save-dev typescript @types/node @types/express
 ```
 
 ## 🧠 Interview Focus Areas
@@ -75,6 +109,27 @@ npm install axios node-fetch dotenv
 - File uploads and data parsing
 - Timeout and abort handling
 
+### **Database & SQL**
+- Database design and normalization
+- SQL queries (joins, aggregations, subqueries)
+- ORM patterns (Prisma, TypeORM)
+- Transactions and data integrity
+- Performance optimization and indexing
+
+### **Testing Strategies**
+- Unit vs integration vs E2E testing
+- Test-driven development (TDD)
+- Mocking and stubbing patterns
+- Component testing with RTL
+- API testing and contract testing
+
+### **Authentication & Security**
+- JWT vs session-based authentication
+- Password hashing and security
+- OAuth and third-party authentication
+- Authorization and role-based access
+- Security best practices and vulnerabilities
+
 ## 🎯 Common Interview Questions
 
 ### Express/Node.js
@@ -88,6 +143,24 @@ npm install axios node-fetch dotenv
 - "Explain the difference between props and state"
 - "Implement a todo list with add/remove functionality"
 - "How would you optimize re-renders?"
+
+### Database/SQL
+- "Design a database schema for a social media app"
+- "Write a query to find the top 10 users by post count"
+- "Explain the difference between INNER and LEFT JOIN"
+- "How would you optimize a slow query?"
+
+### Testing
+- "Write unit tests for this function"
+- "How would you test a React component that makes API calls?"
+- "What's the difference between mocks and stubs?"
+- "Explain your testing strategy for a new feature"
+
+### Authentication
+- "Implement JWT-based authentication"
+- "Compare JWT vs session-based auth"
+- "How would you handle password reset functionality?"
+- "Explain how OAuth works"
 
 ### Algorithms
 - "Implement tic-tac-toe game logic"
@@ -154,12 +227,18 @@ echo "PORT=3000" >> .env
 2. **10 minutes**: Build a React counter with increment/decrement
 3. **15 minutes**: Implement tic-tac-toe win detection
 4. **20 minutes**: Make authenticated API requests with error handling
+5. **25 minutes**: Create JWT authentication middleware
+6. **30 minutes**: Write unit tests for a user service class
+7. **35 minutes**: Design a database schema for a blog platform
 
 ### Build Projects
 1. **Todo API** - Full CRUD with Express and database
 2. **Weather App** - React frontend consuming weather API  
 3. **Chat Application** - WebSocket implementation
 4. **File Upload Service** - Handle multipart uploads
+5. **User Management System** - Authentication, roles, and permissions
+6. **E-commerce API** - Products, orders, payments with full testing
+7. **Blog Platform** - Posts, comments, tags with database optimization
 
 ## 📊 Progress Tracking
 
@@ -167,9 +246,12 @@ echo "PORT=3000" >> .env
 - [ ] React hooks and component patterns
 - [ ] Algorithm implementation (sorting, searching, trees)
 - [ ] HTTP request patterns and error handling
-- [ ] Database integration (queries, migrations, relationships)
-- [ ] Authentication and authorization patterns
-- [ ] Testing strategies (unit, integration, e2e)
+- [ ] Database design and SQL mastery (joins, indexing, optimization)
+- [ ] ORM usage (Prisma, TypeORM) and migration strategies
+- [ ] Authentication patterns (JWT, sessions, OAuth)
+- [ ] Security best practices and vulnerability prevention
+- [ ] Testing strategies (unit, integration, e2e, mocking)
+- [ ] Test-driven development and code quality
 - [ ] Performance optimization techniques
 
 ---

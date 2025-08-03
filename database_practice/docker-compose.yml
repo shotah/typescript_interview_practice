@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  # PostgreSQL for Prisma and TypeORM examples
+  postgres:
+    image: postgres:15-alpine
+    container_name: db-practice-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: practice_db
+      POSTGRES_USER: practice_user
+      POSTGRES_PASSWORD: practice_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init-postgres.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # MySQL for additional practice
+  mysql:
+    image: mysql:8.0
+    container_name: db-practice-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: practice_db
+      MYSQL_USER: practice_user
+      MYSQL_PASSWORD: practice_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/init-mysql.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # Redis for caching examples
+  redis:
+    image: redis:7-alpine
+    container_name: db-practice-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+
+  # Database admin tools
+  adminer:
+    image: adminer:4.8.1
+    container_name: db-practice-adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - mysql
+
+volumes:
+  postgres_data:
+  mysql_data:
+  redis_data:

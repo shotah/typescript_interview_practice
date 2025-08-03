@@ -30,6 +30,37 @@ http-practice
 nodejs_requests_practice/http-practice
 nodejs_requests_practice/*/node_modules
 
+# Database practice
+db-practice
+database_practice/db-practice
+database_practice/typeorm-practice
+database_practice/sql-practice
+database_practice/*/node_modules
+database_practice/*/dist
+database_practice/*/*.db
+database_practice/*/*.sqlite
+database_practice/.env
+database_practice/*/prisma/migrations
+database_practice/*/data
+
+# Testing practice
+test-practice
+testing_practice/test-practice
+testing_practice/api-testing
+testing_practice/*/node_modules
+testing_practice/*/build
+testing_practice/*/coverage
+testing_practice/*/dist
+
+# Authentication practice
+auth-practice
+auth-frontend
+auth_practice/auth-practice
+auth_practice/auth-frontend
+auth_practice/*/node_modules
+auth_practice/*/build
+auth_practice/*/dist
+
 # Any auto-generated test projects
 **/test-app
 **/demo-app
