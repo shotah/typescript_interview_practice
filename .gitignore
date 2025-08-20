@@ -4,7 +4,8 @@ node_modules
 # Auto-generated practice projects (don't commit these)
 # Express practice
 my-api
-express_practice/my-api
+express_practice/my-*
+express_practice/old*
 express_practice/*/node_modules
 
 # React practice  

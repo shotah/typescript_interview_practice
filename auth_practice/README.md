@@ -5,6 +5,7 @@ Master authentication patterns, JWT, sessions, and security for interviews.
 ## 🚀 Quick Setup
 
 ### Backend Authentication (Express + TypeScript)
+
 ```bash
 mkdir auth-practice
 cd auth-practice
@@ -16,15 +17,35 @@ npm install --save-dev typescript ts-node @types/node @types/express @types/bcry
 ```
 
 ### Frontend Authentication (React + TypeScript)
+
 ```bash
 npx create-react-app auth-frontend --template typescript
 cd auth-frontend
-npm install axios
+# No need for axios, use built-in fetch API (Node 18+ and browsers)
 ```
 
 ## 🔑 JWT Authentication (Stateless)
 
+### Using Fetch in Node.js 18+ and React
+
+- Node.js 18+ and all modern browsers support the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+- You can use `fetch` for HTTP requests both in your React frontend and in Node.js backend scripts (for example, for integration tests or server-to-server calls).
+
+**Example usage in Node.js or React:**
+
+```typescript
+// Fetch example (works in Node.js 18+ and browsers)
+const response = await fetch('http://localhost:4000/api/auth/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, password }),
+});
+const data = await response.json();
+console.log(data);
+```
+
 ### JWT Backend Implementation
+
 ```typescript
 // src/types/auth.ts
 export interface User {
@@ -331,6 +352,7 @@ export default router;
 ## 🍪 Session-Based Authentication (Stateful)
 
 ### Session Backend Implementation
+
 ```typescript
 // src/session-auth.ts
 import express from 'express';
@@ -418,6 +440,7 @@ app.get('/me', requireAuth, (req, res) => {
 ## ⚛️ Frontend Authentication (React)
 
 ### Auth Context and Hooks
+
 ```typescript
 // src/contexts/AuthContext.tsx
 import React, { createContext, useContext, useReducer, useEffect, ReactNode } from 'react';
@@ -607,6 +630,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 ```
 
 ### Login Component
+
 ```typescript
 // src/components/LoginForm.tsx
 import React, { useState } from 'react';
@@ -676,6 +700,7 @@ export const LoginForm: React.FC = () => {
 ```
 
 ### Protected Route Component
+
 ```typescript
 // src/components/ProtectedRoute.tsx
 import React from 'react';
@@ -703,6 +728,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
 ## 🔒 Security Best Practices
 
 ### Password Security
+
 ```typescript
 // Strong password validation
 export const validatePassword = (password: string): string[] => {
@@ -766,6 +792,7 @@ export const checkRateLimit = (email: string): boolean => {
 ```
 
 ### Security Headers
+
 ```typescript
 // Security middleware
 import helmet from 'helmet';
@@ -797,6 +824,7 @@ app.use('/api/auth', authLimiter);
 ### **Q: JWT vs Sessions - pros and cons?**
 
 **JWT (Stateless):**
+
 - ✅ Scalable (no server storage)
 - ✅ Works across multiple servers
 - ✅ Contains user info
@@ -804,6 +832,7 @@ app.use('/api/auth', authLimiter);
 - ❌ Larger request size
 
 **Sessions (Stateful):**
+
 - ✅ Can be revoked immediately
 - ✅ Smaller request size
 - ✅ Server controls expiration
@@ -811,6 +840,7 @@ app.use('/api/auth', authLimiter);
 - ❌ Harder to scale
 
 ### **Q: How do you secure authentication?**
+
 - HTTPS only
 - Strong password requirements
 - Rate limiting
@@ -819,12 +849,14 @@ app.use('/api/auth', authLimiter);
 - XSS prevention
 
 ### **Q: How do you handle token refresh?**
+
 - Short-lived access tokens (15-30 min)
 - Longer-lived refresh tokens (7-30 days)
 - Automatic refresh before expiration
 - Secure refresh token storage
 
 ### **Q: What are common auth vulnerabilities?**
+
 - **Brute force**: Rate limiting, account lockout
 - **CSRF**: CSRF tokens, SameSite cookies
 - **XSS**: HttpOnly cookies, input sanitization

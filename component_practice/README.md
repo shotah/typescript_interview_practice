@@ -4,14 +4,8 @@ Practice building components and understanding component patterns for interviews
 
 ## 🚀 Quick Setup
 
-### Option A: JavaScript
-```bash
-npx create-react-app component-test
-cd component-test
-npm start
-```
+### TypeScript (Recommended for Interviews)
 
-### Option B: TypeScript (Recommended for Interviews)
 ```bash
 npx create-react-app component-test --template typescript
 cd component-test
@@ -44,6 +38,7 @@ src/
 ## 🔧 Adding Components to Your App
 
 ### 1. Create Component Export Barrel
+
 ```typescript
 // src/components/index.ts
 export { default as Button } from './Button';
@@ -52,6 +47,7 @@ export { default as TodoList } from './TodoList';
 ```
 
 ### 2. Create a Component File
+
 ```typescript
 // src/components/Button/Button.tsx
 import React from 'react';
@@ -85,6 +81,7 @@ export { default } from './Button';
 ```
 
 ### 3. Import in App.tsx
+
 ```typescript
 // src/App.tsx
 import { Button, Counter, TodoList } from './components';
@@ -106,6 +103,7 @@ export default App;
 ## 📚 Component Interview Topics
 
 ### 1. **Functional vs Class Components (TypeScript)**
+
 ```typescript
 // Functional Component (preferred) - TypeScript
 interface WelcomeProps {
@@ -125,6 +123,7 @@ class WelcomeClass extends React.Component<WelcomeProps> {
 ```
 
 ### 2. **State Management with TypeScript**
+
 ```typescript
 import { useState, useEffect } from 'react';
 
@@ -145,6 +144,7 @@ function Counter() {
 ```
 
 ### 3. **Props and Event Handling (TypeScript)**
+
 ```typescript
 interface ButtonProps {
   onClick: () => void;
@@ -169,6 +169,7 @@ function Button({ onClick, children, disabled = false }: ButtonProps) {
 ### 4. **Common Patterns**
 
 #### Controlled Components
+
 ```typescript
 import { useState, FormEvent } from 'react';
 
@@ -193,6 +194,7 @@ function Form() {
 ```
 
 #### Conditional Rendering
+
 ```typescript
 interface LoginButtonProps {
   isLoggedIn: boolean;
@@ -214,6 +216,7 @@ function LoginButton({ isLoggedIn, onLogin, onLogout }: LoginButtonProps) {
 ```
 
 #### Lists and Keys
+
 ```typescript
 interface Todo {
   id: number;
@@ -241,18 +244,22 @@ function TodoList({ todos }: TodoListProps) {
 ## 🧠 Interview Questions
 
 **Q: What is the difference between props and state?**
+
 - Props: Read-only data passed from parent to child
 - State: Internal component data that can change
 
 **Q: When would you use useEffect?**
+
 - Side effects: API calls, timers, DOM manipulation
 - Cleanup: Removing event listeners, canceling requests
 
 **Q: What are React keys and why are they important?**
+
 - Help React identify which items have changed
 - Should be unique and stable (not array index)
 
 **Q: How do you type props in TypeScript?**
+
 - Use interfaces or type aliases
 - Mark optional props with `?`
 - Use `React.ReactNode` for children
@@ -260,12 +267,14 @@ function TodoList({ todos }: TodoListProps) {
 ## 🛣️ React Router (Common Interview Topic)
 
 ### Setup
+
 ```bash
 npm install react-router-dom
 npm install --save-dev @types/react-router-dom  # TypeScript
 ```
 
 ### Basic Routing
+
 ```typescript
 // App.tsx
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -295,6 +304,7 @@ function App() {
 ```
 
 ### Route Parameters
+
 ```typescript
 import { useParams } from 'react-router-dom';
 
@@ -310,6 +320,7 @@ function UserProfile() {
 ```
 
 ### Navigation Hooks
+
 ```typescript
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -339,6 +350,7 @@ Local State (useState) → Lifting State Up → Context → Global State → Ser
 ```
 
 ### 1. **Built-in React State**
+
 ```typescript
 // Local component state
 const [count, setCount] = useState(0);
@@ -354,6 +366,7 @@ const UserContext = createContext();
 ```
 
 ### 2. **TanStack Query (React Query) - Server State**
+
 ```bash
 npm install @tanstack/react-query
 ```
@@ -482,6 +495,7 @@ function UpdatePost({ post }) {
 ```
 
 ### 3. **Zustand - Simple Global State**
+
 ```bash
 npm install zustand
 ```
@@ -514,6 +528,7 @@ function Controls() {
 ```
 
 ### 4. **Redux Toolkit - Complex Global State**
+
 ```bash
 npm install @reduxjs/toolkit react-redux
 ```
@@ -559,6 +574,7 @@ function Counter() {
 ```
 
 ### 5. **Jotai - Atomic State Management**
+
 ```bash
 npm install jotai
 ```
@@ -596,24 +612,28 @@ function Counter() {
 | **Jotai** | Granular reactivity | Bottom-up, atomic | Newer, smaller ecosystem |
 
 ### **Q: Client-side caching benefits?**
+
 - ✅ **Faster UX** - Instant loading from cache
 - ✅ **Reduced server load** - Fewer API calls
 - ✅ **Offline support** - Data available without network
 - ✅ **Background updates** - Stale-while-revalidate pattern
 
 ### **Q: Client-side caching drawbacks?**
+
 - ❌ **Stale data** - Cache might be outdated
 - ❌ **Memory usage** - Storing data in browser
 - ❌ **Complexity** - Cache invalidation is hard
 - ❌ **Initial bundle size** - Additional libraries
 
 ### **Q: When NOT to use client-side caching?**
+
 - Real-time data (stock prices, chat)
 - Sensitive data (payments, personal info)
 - Simple apps with minimal API calls
 - Data that changes frequently
 
 ### **Q: Server state vs Client state?**
+
 ```typescript
 // Server state - data from APIs
 const { data: users } = useQuery(['users'], fetchUsers);
@@ -626,31 +646,37 @@ const [formData, setFormData] = useState({});
 ## 🎯 Interview Decision Framework
 
 ### **Choose useState when:**
+
 - Local component state
 - Simple boolean flags
 - Form inputs
 
 ### **Choose Context when:**
+
 - Avoiding prop drilling
 - Theme, auth, language settings
 - Small to medium apps
 
 ### **Choose TanStack Query when:**
+
 - Any server data fetching
 - Need caching and background updates
 - Want loading/error states handled
 
 ### **Choose Zustand when:**
+
 - Need global state
 - Want simple API
 - TypeScript-first approach
 
 ### **Choose Redux Toolkit when:**
+
 - Large, complex applications
 - Need time-travel debugging
 - Team familiar with Redux patterns
 
 ### **Choose Jotai when:**
+
 - Need fine-grained reactivity
 - Bottom-up state architecture
 - Avoiding unnecessary re-renders

@@ -5,6 +5,7 @@ Document the process of going from 0 to 100 with a basic Express API using autom
 ## 🚀 Quick Start (Recommended)
 
 ### 1. Generate Express App
+
 ```bash
 # Create a new Express app with all the boilerplate
 npx express-generator --no-view my-api
@@ -14,6 +15,7 @@ npm start
 ```
 
 ### 2. Add TypeScript Support (Optional)
+
 ```bash
 # Add TypeScript dependencies
 npm install --save-dev typescript @types/node @types/express ts-node nodemon
@@ -21,11 +23,15 @@ npm install --save-dev typescript @types/node @types/express ts-node nodemon
 # Generate TypeScript configuration
 npx tsc --init --target ES2020 --module commonjs --outDir ./dist --rootDir ./src
 
+# Generate Eslint configuration
+npx eslint --init
+
 # Add dev script to package.json:
 # "dev": "nodemon --exec ts-node src/app.ts"
 ```
 
 ### 3. Test Your Server
+
 ```bash
 # Development mode
 npm run dev
@@ -48,6 +54,9 @@ npx express-generator --css=sass my-webapp
 
 # TypeScript starter (third-party)
 npx create-ts-express my-api
+
+# With authentication (third-party)
+npx create-ts-express my-auth-api --auth
 ```
 
 ## 📁 What Gets Generated
@@ -105,12 +114,14 @@ curl http://localhost:3000/health
 ### Core Express Concepts You Should Know
 
 #### 1. **What is Express?**
+
 - Minimal web framework for Node.js
 - Handles HTTP requests/responses
 - Middleware-based architecture
 - Built on top of Node.js `http` module
 
 #### 2. **Request/Response Cycle**
+
 ```javascript
 app.get('/users/:id', (req, res) => {
   // req.params.id - URL parameters
@@ -123,6 +134,7 @@ app.get('/users/:id', (req, res) => {
 ```
 
 #### 3. **Middleware Deep Dive**
+
 ```javascript
 // Application-level middleware
 app.use(express.json());
@@ -140,6 +152,7 @@ app.use(express.static('public'));
 ```
 
 #### 4. **HTTP Methods & RESTful Routes**
+
 ```javascript
 app.get('/users', getAllUsers);       // READ all
 app.get('/users/:id', getUser);       // READ one
@@ -152,15 +165,18 @@ app.delete('/users/:id', deleteUser); // DELETE
 #### 5. **Common Interview Questions**
 
 **Q: Difference between `app.use()` and `app.get()`?**
+
 - `app.use()` - Middleware for all HTTP methods
 - `app.get()` - Route handler for GET requests only
 
 **Q: What is `next()` function?**
+
 - Passes control to next middleware
 - `next()` - continue to next middleware
 - `next(error)` - skip to error handler
 
 **Q: How to handle errors in Express?**
+
 ```javascript
 // Async error handling
 const asyncHandler = (fn) => (req, res, next) => {
@@ -174,6 +190,7 @@ app.get('/users', asyncHandler(async (req, res) => {
 ```
 
 #### 6. **Environment & Configuration**
+
 ```javascript
 const PORT = process.env.PORT || 3000;
 const NODE_ENV = process.env.NODE_ENV || 'development';
@@ -186,15 +203,18 @@ if (NODE_ENV === 'development') {
 ### 🔗 Essential Resources
 
 #### Documentation
+
 - [Express.js Official Docs](https://expressjs.com/)
 - [Express.js Guide](https://expressjs.com/en/guide/routing.html)
 - [MDN HTTP Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
 #### Practice Questions
+
 - [Express Interview Questions](https://github.com/sudheerj/node-interview-questions)
 - [Node.js Best Practices](https://github.com/goldbergyoni/nodebestpractices)
 
 #### Quick Reference
+
 ```javascript
 // Most common patterns you'll be asked about:
 
@@ -245,4 +265,3 @@ app.use((req, res, next) => {
 - Set up a database connection
 - Add error handling middleware
 - Practice building RESTful APIs
-
